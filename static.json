@@ -1,10 +1,8 @@
 {
-  "root": "dist/",
+  "root": "build/",
   "clean_urls": true,
   "error_page": "404.html",
   "routes": {
-    "/*.js": "./assets",
-    "/*.css": "./assets",
     "/**": "index.html"
   }
 }
