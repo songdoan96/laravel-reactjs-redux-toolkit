@@ -21,14 +21,13 @@ function Home() {
   }, [currentPage, dispatch, sort, filter]);
 
   const {
-    getProducts: { status, errors, current_page, last_page, products, categories },
+    getProducts: { status, current_page, last_page, products, categories },
   } = useSelector(productStateSelect);
 
   const handleAddToCart = (product) => {
     ToastMsg("success", "Đã thêm sản phẩm vào giỏ hàng.");
     dispatch(incrementByAmount({ product, qty: 1 }));
   };
-
   let child = "";
   if (status === "loading") {
     child = (
@@ -165,7 +164,10 @@ function Home() {
                 </li>
                 {categories?.map((category) => (
                   <li
-                    onClick={() => setFilter(category._id)}
+                    onClick={() => {
+                      setFilter(category._id);
+                      setCurrentPage(1);
+                    }}
                     key={category._id}
                     className="cursor-pointer hover:text-primary"
                   >

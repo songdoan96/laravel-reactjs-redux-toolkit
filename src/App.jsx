@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { resetUser } from "store/slices/authSlice";
 import ToastMsg from "utils/ToastMsg";
-
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
